@@ -8,7 +8,8 @@ This repository aims to cover a wide range of topics, including:
 - Deep learning architectures and techniques.
 - Model evaluation and selection strategies.
 - Latest trends and research in the field.
-## Contribution
-This repository is a work in progress and will be updated regularly. Contributions are welcome! If you have suggestions or improvements, feel free to open an issue or submit a pull request.
+## Contribution  
+This repository is a work in progress and will be updated regularly. Contributions are welcome! If you have suggestions or improvements, feel free to open an issue or submit a pull request.  
+
 ---
 Thank you for visiting this repository. We hope you find the resources helpful in your machine learning journey!

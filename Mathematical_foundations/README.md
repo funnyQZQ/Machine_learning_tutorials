@@ -1,0 +1,14 @@
+## 1. Mathematical Foundations of Machine Learning
+- [ ] Linear Algebra
+  - [x] [Vectors and Matrices](./vectors_and_matrices.ipynb)
+  - [ ] Eigenvalues and Eigenvectors
+  - [ ] Singular Value Decomposition (SVD)
+- [ ] Calculus
+  - [ ] Derivatives and Integrals
+  - [ ] Partial Derivatives
+  - [ ] Chain Rule
+- [ ] Probability and Statistics
+  - [ ] Probability Distributions
+  - [ ] Bayes' Theorem
+  - [ ] Expectation and Variance
+  - [ ] Hypothesis Testing

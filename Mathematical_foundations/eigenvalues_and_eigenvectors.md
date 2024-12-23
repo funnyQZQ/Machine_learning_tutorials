@@ -9,7 +9,7 @@ where $\lambda$ is the eigenvalue corresponding to the eigenvector $\vec{v}$.
 
 **Eigenvalues**: These are scalars that represent how much the eigenvector is stretched or compressed during the transformation.
 
-The eigenvectors of matrix $ A $ have **two important properties**:
+The eigenvectors of matrix $A$ have **two important properties**:
 
 1. If $X_1$ and $X_2$ are eigenvectors of $A$ corresponding to the eigenvalue $\lambda$, then $X_1 + X_2$ is also an eigenvector of $A$ corresponding to the eigenvalue $\lambda$.
 

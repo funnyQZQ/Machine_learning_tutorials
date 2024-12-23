@@ -1,7 +1,7 @@
 ## 1. Mathematical Foundations of Machine Learning
 - [ ] Linear Algebra
-  - [x] [Vectors and Matrices](./vectors_and_matrices.ipynb)
-  - [x] [Eigenvalues and Eigenvectors](./eigenvalues_and_eigenvectors.ipynb)
+  - [x] [Vectors and Matrices](./vectors_and_matrices.md)
+  - [x] [Eigenvalues and Eigenvectors](./eigenvalues_and_eigenvectors.md)
   - [ ] Singular Value Decomposition (SVD)
 - [ ] Calculus
   - [ ] Derivatives and Integrals

@@ -16,26 +16,32 @@ Where:
 
 
 #### 2. Objective
-The objective of linear regression is to find the optimal regression coefficients $\beta$ that minimize the sum of squared differences between the predicted and actual values. This process is known as Ordinary Least Squares (OLS).
+The objective of linear regression is to find the optimal regression coefficients $\beta$ that minimize the sum of squared differences between the predicted and actual values. 
 
 #### 3. Solving the problem
 
 #### 3.1 Analytical solution
 
 We have a linear regression model:
+
 $$
 y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \cdots + \beta_n x_n + \epsilon
 $$
+
 Our goal is to find the parameters $\beta = [\beta_0, \beta_1, \cdots, \beta_n]$ that minimize the sum of squared errors between the predicted and actual values.
+
 $$
 \beta = [\beta_0, \beta_1, \cdots, \beta_n]
 $$
+
 that minimize the sum of squared errors between the predicted and actual values.
 
 The problem can be expressed in matrix form as:
+
 $$
 \mathbf{y} = \mathbf{X} \boldsymbol{\beta} + \boldsymbol{\epsilon}
 $$
+
 Where: 
 - $\mathbf{y}$ is an $m \times 1$ vector of the target variable.
 - $\mathbf{X}$ is an $m \times (n+1)$ matrix, with the first column being all ones (for the intercept $\beta_0$), and the remaining columns are the feature values.
@@ -46,22 +52,29 @@ Where:
 
 We aim to minimize the sum of squared errors:  
 The original objective function can be defined as:
+
 $$
 S = \sum_{i=1}^{m} (y_i - \hat{y}_i)^2
 $$
+
 where $y_i$ is the actual value and $\hat{y}_i$ is the predicted value.
 
 $$
 S = (\mathbf{y} - \mathbf{X} \boldsymbol{\beta})^T (\mathbf{y} - \mathbf{X} \boldsymbol{\beta})
 $$
+
 Expanding the expression, we get:
+
 $$
 S = (\mathbf{y}^T - \boldsymbol{\beta}^T \mathbf{X}^T)(\mathbf{y} - \mathbf{X} \boldsymbol{\beta})
 $$
+
 $$
 S = \mathbf{y}^T \mathbf{y} - \mathbf{y}^T \mathbf{X} \boldsymbol{\beta} - \boldsymbol{\beta}^T \mathbf{X}^T \mathbf{y} + \boldsymbol{\beta}^T \mathbf{X}^T \mathbf{X} \boldsymbol{\beta}
 $$
+
 Since $\mathbf{y}^T \mathbf{X} \boldsymbol{\beta}$ and $\boldsymbol{\beta}^T \mathbf{X}^T \mathbf{y}$ are scalars and equal, we can simplify to:
+
 $$
 S = \mathbf{y}^T \mathbf{y} - 2\mathbf{y}^T \mathbf{X} \boldsymbol{\beta} + \boldsymbol{\beta}^T \mathbf{X}^T \mathbf{X} \boldsymbol{\beta}
 $$
@@ -69,12 +82,15 @@ $$
 
 **Derivation Steps**
 1. Expand the Objective Function:
+
 $$
 S = \mathbf{y}^T \mathbf{y} - 2\mathbf{y}^T \mathbf{X} \boldsymbol{\beta} + \boldsymbol{\beta}^T \mathbf{X}^T \mathbf{X} \boldsymbol{\beta}
 $$
+
 2. Take the Derivative with Respect to $\boldsymbol{\beta}$ and Set it to Zero:
 
 To find the optimal $\boldsymbol{\beta}$, we need to take the derivative of the objective function $S$ with respect to $\boldsymbol{\beta}$ and set it to zero. The derivative of $S$ with respect to $\boldsymbol{\beta}$ is given by: 
+
 $$
 \frac{\partial S}{\partial \boldsymbol{\beta}} = \frac{\partial}{\partial \boldsymbol{\beta}} \left( \mathbf{y}^T \mathbf{y} - 2\mathbf{y}^T \mathbf{X} \boldsymbol{\beta} + \boldsymbol{\beta}^T \mathbf{X}^T \mathbf{X} \boldsymbol{\beta} \right)
 $$
@@ -100,16 +116,22 @@ Therefore, we have:
 $$
 \frac{\partial S}{\partial \boldsymbol{\beta}} = -2\mathbf{X}^T \mathbf{y} + 2\mathbf{X}^T \mathbf{X} \boldsymbol{\beta}
 $$
+
 Setting the derivative to zero, we get:
+
 $$
 -2\mathbf{X}^T \mathbf{y} + 2\mathbf{X}^T \mathbf{X} \boldsymbol{\beta} = 0
 $$
+
 3. Solve for $\boldsymbol{\beta}$:
+
 $$
 \mathbf{X}^T \mathbf{X} \boldsymbol{\beta} = \mathbf{X}^T \mathbf{y}
 $$
+
 Assuming $\mathbf{X}^T \mathbf{X}$ is invertible, we can solve for $\boldsymbol{\beta}$:
  X is invertible, we can solve for 
+ 
 $$
 \boldsymbol{\beta} = (\mathbf{X}^T \mathbf{X})^{-1} \mathbf{X}^T \mathbf{y}
 $$

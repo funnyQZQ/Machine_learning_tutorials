@@ -8,7 +8,7 @@ A = \begin{bmatrix}
 \end{bmatrix} 
 $$
 
-这是一个行间矩阵$\begin{bmatrix}
+这是一个行间矩阵$\begin{matrix}
   l&l\\
   j&z
-  \end{bmatrix}$的展示
+  \end{matrix}$的展示

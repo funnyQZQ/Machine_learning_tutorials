@@ -7,3 +7,8 @@ A = \begin{bmatrix}
 0 & 0 & 2 
 \end{bmatrix} 
 $$
+
+这是一个行间矩阵$\begin{bmatrix}
+  l&l\\
+  j&z
+  \end{bmatrix}$的展示

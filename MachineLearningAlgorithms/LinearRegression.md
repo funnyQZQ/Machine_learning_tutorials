@@ -131,7 +131,7 @@ $$
 
 Assuming $\mathbf{X}^T \mathbf{X}$ is invertible, we can solve for $\boldsymbol{\beta}$:
  X is invertible, we can solve for 
- 
+
 $$
 \boldsymbol{\beta} = (\mathbf{X}^T \mathbf{X})^{-1} \mathbf{X}^T \mathbf{y}
 $$
@@ -173,38 +173,47 @@ print(weights)
 #### 3.2 Gradient Descent
 
 Gradient Descent is an iterative optimization algorithm used to minimize the cost function. For linear regression, the cost function is defined as:
+
 $$
 S = \frac{1}{2m} \sum_{i=1}^{m} (y_i - \hat{y}_i)^2
 $$
+
 where $m$ is the number of training examples, $y_i$ is the actual value, and $\hat{y}_i$ is the predicted value.
 
 The goal is to find the weights $\boldsymbol{\beta}$ that minimize the cost function $S$. The gradient descent algorithm updates the weights iteratively using the following rule:
+
 $$
 \boldsymbol{\beta} := \boldsymbol{\beta} - \alpha \frac{\partial S}{\partial \boldsymbol{\beta}}
 $$
+
 where $\alpha$ is the learning rate.
 
 To derive the update rule, we first need to compute the gradient of the cost function with respect to the weights $\boldsymbol{\beta}$:
+
 $$
 \frac{\partial S}{\partial \boldsymbol{\beta}} = \frac{\partial}{\partial \boldsymbol{\beta}} \left( \frac{1}{2m} \sum_{i=1}^{m} (y_i - \hat{y}_i)^2 \right)
 $$
 
 Expanding $\hat{y}_i$ as $\mathbf{X} \boldsymbol{\beta}$:
+
 $$
 \frac{\partial S}{\partial \boldsymbol{\beta}} = \frac{\partial}{\partial \boldsymbol{\beta}} \left( \frac{1}{2m} \sum_{i=1}^{m} (y_i - \mathbf{X}_i \boldsymbol{\beta})^2 \right)
 $$
 
 Using the chain rule, we get:
+
 $$
 \frac{\partial S}{\partial \boldsymbol{\beta}} = \frac{1}{m} \sum_{i=1}^{m} (y_i - \mathbf{X}_i \boldsymbol{\beta})(- \mathbf{X}_i)
 $$
 
 Simplifying, we obtain:
+
 $$
 \frac{\partial S}{\partial \boldsymbol{\beta}} = -\frac{1}{m} \mathbf{X}^T (\mathbf{y} - \mathbf{X} \boldsymbol{\beta})
 $$
 
 Thus, the gradient descent update rule becomes:
+
 $$
 \boldsymbol{\beta} := \boldsymbol{\beta} + \alpha \frac{1}{m} \mathbf{X}^T (\mathbf{y} - \mathbf{X} \boldsymbol{\beta})
 $$

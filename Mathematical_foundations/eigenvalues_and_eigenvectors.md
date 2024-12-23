@@ -11,7 +11,7 @@ where $\lambda$ is the eigenvalue corresponding to the eigenvector $\vec{v}$.
 
 The eigenvectors of matrix $ A $ have **two important properties**:
 
-1. If $ X_1 $ and $ X_2 $ are eigenvectors of $ A $ corresponding to the eigenvalue $ \lambda $, then $ X_1 + X_2 $ is also an eigenvector of $ A $ corresponding to the eigenvalue $ \lambda $.
+1. If $X_1$ and $X_2$ are eigenvectors of $A$ corresponding to the eigenvalue $\lambda$, then $X_1 + X_2$ is also an eigenvector of $A$ corresponding to the eigenvalue $\lambda$.
 
 
 2. If $ X $ is an eigenvector of $ A $ corresponding to the eigenvalue $ \lambda $, and $ k $ is a non-zero constant, then $ kX $ is also an eigenvector of $ A $ corresponding to the eigenvalue $ \lambda $.

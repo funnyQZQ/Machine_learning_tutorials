@@ -8,7 +8,5 @@ A = \begin{bmatrix}
 \end{bmatrix} 
 $$
 
-这是一个行间矩阵$\begin{matrix}
-  l&l\\
-  j&z
-  \end{matrix}$的展示
+用来表示求和符号，其下标表示求和下限，上标表示上限。如:$\sum_{r=1}^n$输出.
+

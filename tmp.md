@@ -30,3 +30,18 @@ $$
 A = $\begin{bmatrix}1&2\\3&4\end{bmatrix}$
 
 \vec{v} = \begin{bmatrix} X \\\ Y \end{bmatrix}
+
+Displayed matrix works:
+$$ \begin{bmatrix}
+    a & b \\ b & c
+\end{bmatrix}$$
+
+Non-displayed matrix does not work due to some backslash escaping we do not want touching tex:
+$\begin{bmatrix}
+    a & b \\ b & c
+\end{bmatrix}$
+
+Proof that this is the problem:
+$\begin{bmatrix}
+    a & b \\\\ b & c
+\end{bmatrix}$

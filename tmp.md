@@ -41,7 +41,7 @@ $\begin{bmatrix}
     a & b \\ b & c
 \end{bmatrix}$
 
-Proof that this is the problem:
+Proof that this is the problem: 
 $\begin{bmatrix}
     a & b \\\\ b & c
 \end{bmatrix}$

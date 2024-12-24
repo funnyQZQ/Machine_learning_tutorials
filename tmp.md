@@ -28,3 +28,5 @@ $$
 
 
 A = $\begin{bmatrix}1&2\\3&4\end{bmatrix}$
+
+\vec{v} = \begin{bmatrix} X \\\ Y \end{bmatrix}

@@ -25,3 +25,6 @@ $$
 由于大括号{ }被用于分组，因此需要使用\{和\}表示大括号，也可以使用\lbrace和\rbrace来表示。如 $\{a+b\}:a-b$ 或 $\lbrace a+b\rbrace:a-b$ 输出为
 
 \int用来表示积分符号，同样地，其上下标表示积分的上下限。如 $\int_{r=1}^\infty$ 输出为
+
+
+A = $\begin{bmatrix}1&2\\3&4\end{bmatrix}$

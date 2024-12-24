@@ -1,4 +1,4 @@
-Consider matrix $$A = \begin{bmatrix} 2 & 0 \\ 0 & 3 \end{bmatrix}$$ with eigenvalue $$\lambda = 2$$. The eigenvectors corresponding to $$\lambda = 2$$ are of the form $$X = \begin{bmatrix} x \\ 0 \end{bmatrix}$$.
+Consider matrix $A = \begin{bmatrix} 2 & 0 \\ 0 & 3 \end{bmatrix}$ with eigenvalue $\lambda = 2$. The eigenvectors corresponding to $\lambda = 2$ are of the form $X = \begin{bmatrix} x \\ 0 \end{bmatrix}$.
 
 $$ 
 A=\begin{bmatrix}
@@ -6,37 +6,3 @@ A=\begin{bmatrix}
 0 & 3 
 \end{bmatrix} 
 $$
-
-$$ 
-A = \begin{bmatrix} 
-4 & 1 & 2 \\ 
-0 & 3 & -1 \\ 
-0 & 0 & 2 
-\end{bmatrix} 
-$$
-
-用来表示求和符号，其下标表示求和下限，上标表示上限。如: $\sum_{r=1}^n$ 输出。
-
-由于大括号{ }被用于分组，因此需要使用\{和\}表示大括号，也可以使用\lbrace和\rbrace来表示。如 $\{a+b\}:a-b$ 或 $\lbrace a+b\rbrace:a-b$ 输出为
-
-\int用来表示积分符号，同样地，其上下标表示积分的上下限。如 $\int_{r=1}^\infty$ 输出为
-
-
-A = $\begin{bmatrix}1&2\\3&4\end{bmatrix}$
-
-\vec{v} = \begin{bmatrix} X \\\ Y \end{bmatrix}
-
-Displayed matrix works:
-$$ \begin{bmatrix}
-    a & b \\ b & c
-\end{bmatrix}$$
-
-Non-displayed matrix does not work due to some backslash escaping we do not want touching tex:
-$\begin{bmatrix}
-    a & b \\ b & c
-\end{bmatrix}$
-
-Proof that this is the problem: 
-$\begin{bmatrix}
-    a & b \\\\ b & c
-\end{bmatrix}$

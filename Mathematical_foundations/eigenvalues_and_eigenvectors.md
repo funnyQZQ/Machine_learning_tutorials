@@ -22,7 +22,11 @@ The eigenvectors of matrix $A$ have **two important properties**:
 **Example for Property 1**
 
 Consider matrix   
-$$A = \begin{bmatrix} 2 & 0 \\ 0 & 3 \end{bmatrix}$$ 
+
+$$
+A = \begin{bmatrix} 2 & 0 \\ 0 & 3 \end{bmatrix}
+$$ 
+
 with eigenvalue $\lambda = 2 $. The eigenvectors corresponding to $\lambda = 2$ are of the form $X = \begin{bmatrix} x \\ 0 \end{bmatrix}$.
 
 Let $X_1 = \begin{bmatrix} 1 \\ 0 \end{bmatrix}$ and $X_2 = \begin{bmatrix} 2 \\ 0 \end{bmatrix}$. Both are eigenvectors of $A$ for $\lambda = 2$.

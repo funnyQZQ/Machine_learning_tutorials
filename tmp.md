@@ -9,3 +9,6 @@ A=\begin{bmatrix}
 0 & 3 
 \end{bmatrix} 
 $$
+
+
+Consider matrix $A = \left(\begin{array}{cc} 2 & 0 \\ 0 & 3 \end{array}\right)$

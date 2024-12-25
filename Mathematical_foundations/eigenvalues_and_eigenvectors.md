@@ -1,10 +1,13 @@
 ### Eigenvalues and Eigenvectors
 
 **Eigenvectors**: These are non-zero vectors that only change by a scalar factor when a linear transformation is applied. Mathematically, for a matrix $A$, an eigenvector $v$ satisfies:
-$$A\vec{v}=\lambda\vec{v}$$
+
+$$
+A\vec{v}=\lambda\vec{v}
+$$
+
 where $\lambda$ is the eigenvalue corresponding to the eigenvector $\vec{v}$.  
 *Note*: Only square matrices have eigenvalues and eigenvectors. Non-square matrices do not have eigenvalues or eigenvectors.
-
 
 
 **Eigenvalues**: These are scalars that represent how much the eigenvector is stretched or compressed during the transformation.
@@ -18,7 +21,9 @@ The eigenvectors of matrix $A$ have **two important properties**:
 
 **Example for Property 1**
 
-Consider matrix $A = \begin{bmatrix} 2 & 0 \\ 0 & 3 \end{bmatrix}$ with eigenvalue $\lambda = 2 $. The eigenvectors corresponding to $\lambda = 2$ are of the form $X = \begin{bmatrix} x \\ 0 \end{bmatrix}$.
+Consider matrix   
+$$A = \begin{bmatrix} 2 & 0 \\ 0 & 3 \end{bmatrix}$$ 
+with eigenvalue $\lambda = 2 $. The eigenvectors corresponding to $\lambda = 2$ are of the form $X = \begin{bmatrix} x \\ 0 \end{bmatrix}$.
 
 Let $X_1 = \begin{bmatrix} 1 \\ 0 \end{bmatrix}$ and $X_2 = \begin{bmatrix} 2 \\ 0 \end{bmatrix}$. Both are eigenvectors of $A$ for $\lambda = 2$.
 

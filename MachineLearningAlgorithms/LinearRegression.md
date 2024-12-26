@@ -176,7 +176,7 @@ Gradient Descent is an iterative optimization algorithm used to minimize the cos
 
 To better understand the process of gradient descent, we can visualize the gradient descent process of the linear regression model through an animation. Below is a generated gif that shows the iterative process of gradient descent:
 
-![Linear Regression Gradient Descent](../assets/linear_regression.gif)
+<img src="../assets/linear_regression.gif" alt="Linear Regression Gradient Descent" width="500" height="300">
 
 For linear regression, the cost function is defined as:
 

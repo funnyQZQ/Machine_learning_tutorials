@@ -153,3 +153,7 @@ print("Model accuracy:", accuracy)
 Fitted parameters: [ 249.40764222  -13.4209779  -168.15650401]
 Model accuracy: 1.0
 ```
+
+#### References
+1. https://scikit-learn.org/1.5/modules/generated/sklearn.linear_model.LogisticRegression.html
+2. https://blog.csdn.net/weixin_60737527/article/details/124141293

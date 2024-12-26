@@ -155,6 +155,8 @@ print("模型准确率:", accuracy)
 模型准确率: 1.0
 ```
 
-
+#### 参考文献
+1. https://scikit-learn.org/1.5/modules/generated/sklearn.linear_model.LogisticRegression.html
+2. https://blog.csdn.net/weixin_60737527/article/details/124141293
 
 

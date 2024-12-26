@@ -58,51 +58,70 @@ $$
 
 通过最大化对数似然函数 $\ell(\beta)$，我们可以找到最优的参数 $\beta$。这通常通过梯度下降或其他优化算法来实现。
 
-**8. 梯度下降**
+**8. 交叉熵损失函数**
 
-对对数似然函数求导，首先写出对数似然函数：
-
-$$
-\ell(\beta) = \sum_{i=1}^{m} \left[ y^{(i)} \log(\sigma(z^{(i)})) + (1 - y^{(i)} ) \log(1 - \sigma(z^{(i)})) \right]
-$$
-
-对 $\beta_j$ 求导：
+在逻辑回归中，我们使用交叉熵（Cross Entropy）作为损失函数。对于二分类问题，交叉熵损失函数定义如下：
 
 $$
-\frac{\partial \ell(\beta)}{\partial \beta_j} = \sum_{i=1}^{m} \left[ y^{(i)} \frac{\partial \log(\sigma(z^{(i)}))}{\partial \beta_j} + (1 - y^{(i)}) \frac{\partial \log(1 - \sigma(z^{(i)}))}{\partial \beta_j} \right]
+L(y, \hat{y}) = -[y\log(\hat{y}) + (1-y)\log(1-\hat{y})]
 $$
 
-利用链式法则，分别求导：
+其中：
+- $y$ 是真实标签（0或1）
+- $\hat{y}$ 是模型预测的概率，即 $\sigma(z)$
+- $z = \beta_0 + \beta_1 x_1 + \cdots + \beta_n x_n$
+
+对于整个数据集，损失函数为：
 
 $$
-\frac{\partial \log(\sigma(z^{(i)}))}{\partial \beta_j} = \frac{1}{\sigma(z^{(i)})} \cdot \sigma(z^{(i)}) \cdot (1 - \sigma(z^{(i)})) \cdot x_j^{(i)} = (1 - \sigma(z^{(i)})) x_j^{(i)}
+J(\beta) = -\frac{1}{m}\sum_{i=1}^{m}[y^{(i)}\log(\hat{y}^{(i)}) + (1-y^{(i)})\log(1-\hat{y}^{(i)})]
+$$
+
+**9. 梯度推导**
+
+为了使用梯度下降最小化损失函数，我们需要计算损失函数对参数 $\beta_j$ 的偏导数：
+
+1) 首先，将 $\hat{y} = \sigma(z)$ 代入损失函数：
+
+$$
+J(\beta) = -\frac{1}{m}\sum_{i=1}^{m}[y^{(i)}\log(\sigma(z^{(i)})) + (1-y^{(i)})\log(1-\sigma(z^{(i)}))]
+$$
+
+2) 对 $\beta_j$ 求偏导：
+
+$$
+\frac{\partial J}{\partial \beta_j} = -\frac{1}{m}\sum_{i=1}^{m}[y^{(i)}\frac{\partial}{\partial \beta_j}\log(\sigma(z^{(i)})) + (1-y^{(i)})\frac{\partial}{\partial \beta_j}\log(1-\sigma(z^{(i)}))]
+$$
+
+3) 利用链式法则：
+
+$$
+\frac{\partial}{\partial \beta_j}\log(\sigma(z)) = \frac{1}{\sigma(z)}\sigma(z)(1-\sigma(z))x_j
 $$
 
 $$
-\frac{\partial \log(1 - \sigma(z^{(i)}))}{\partial \beta_j} = \frac{1}{1 - \sigma(z^{(i)})} \cdot (-\sigma(z^{(i)})) \cdot (1 - \sigma(z^{(i)})) \cdot x_j^{(i)} = -\sigma(z^{(i)}) x_j^{(i)}
+\frac{\partial}{\partial \beta_j}\log(1-\sigma(z)) = -\frac{\sigma(z)}{1-\sigma(z)}(1-\sigma(z))x_j = -\sigma(z)x_j
 $$
 
-将以上结果代入求导公式：
+4) 代入并化简：
 
 $$
-\frac{\partial \ell(\beta)}{\partial \beta_j} = \sum_{i=1}^{m} \left[ y^{(i)} (1 - \sigma(z^{(i)})) x_j^{(i)} - (1 - y^{(i)}) \sigma(z^{(i)}) x_j^{(i)} \right]
+\frac{\partial J}{\partial \beta_j} = -\frac{1}{m}\sum_{i=1}^{m}[y^{(i)}(1-\sigma(z^{(i)}))x_j^{(i)} - (1-y^{(i)})\sigma(z^{(i)})x_j^{(i)}]
 $$
 
-整理后得到：
-
 $$
-\frac{\partial \ell(\beta)}{\partial \beta_j} = \sum_{i=1}^{m} (y^{(i)} - \sigma(z^{(i)})) x_j^{(i)}
+\frac{\partial J}{\partial \beta_j} = -\frac{1}{m}\sum_{i=1}^{m}(y^{(i)} - \sigma(z^{(i)}))x_j^{(i)}
 $$
 
-使用梯度下降更新参数：
+5) 梯度下降更新规则：
 
 $$
-\beta_j := \beta_j + \alpha \sum_{i=1}^{m} (y^{(i)} - \sigma(z^{(i)})) x_j^{(i)}
+\beta_j := \beta_j - \alpha\frac{\partial J}{\partial \beta_j} = \beta_j + \frac{\alpha}{m}\sum_{i=1}^{m}(y^{(i)} - \sigma(z^{(i)}))x_j^{(i)}
 $$
 
 其中 $\alpha$ 是学习率。
 
-**9. 预测**
+**10. 预测**
 
 一旦模型参数 $\beta$ 被估计，我们可以使用逻辑回归模型进行预测。对于给定的输入 $x$，计算 $P(y=1|x)$，并根据阈值（通常为0.5）进行分类。
 

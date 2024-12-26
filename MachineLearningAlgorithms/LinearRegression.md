@@ -172,7 +172,13 @@ print(weights)
 
 #### 3.2 Gradient Descent
 
-Gradient Descent is an iterative optimization algorithm used to minimize the cost function. For linear regression, the cost function is defined as:
+Gradient Descent is an iterative optimization algorithm used to minimize the cost function. 
+
+To better understand the process of gradient descent, we can visualize the gradient descent process of the linear regression model through an animation. Below is a generated gif that shows the iterative process of gradient descent:
+
+![Linear Regression Gradient Descent](../assets/linear_regression.gif)
+
+For linear regression, the cost function is defined as:
 
 $$
 S = \frac{1}{2m} \sum_{i=1}^{m} (y_i - \hat{y}_i)^2

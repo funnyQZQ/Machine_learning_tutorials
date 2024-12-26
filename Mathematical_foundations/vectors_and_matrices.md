@@ -6,7 +6,6 @@
 **Definition**: A vector is a one-dimensional array of numbers, which can represent a point in space.
 
 
-
 ```python
 import numpy as np
 

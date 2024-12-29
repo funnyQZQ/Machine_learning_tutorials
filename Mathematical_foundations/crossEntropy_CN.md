@@ -113,7 +113,6 @@ def cross_entropy_numpy(y_true, y_pred, epsilon=1e-15):
     # 多分类情况
     return -np.mean(np.sum(y_true * np.log(y_pred), axis=1))
 
-# 示例
 # 二分类
 y_true_binary = np.array([1, 0, 1, 1])
 y_pred_binary = np.array([0.9, 0.1, 0.8, 0.7])

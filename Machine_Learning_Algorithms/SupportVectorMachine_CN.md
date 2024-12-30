@@ -109,15 +109,15 @@ $$
 
    1. 首先对拉格朗日函数关于 $w$ 和 $b$ 求偏导并令其为0:
       
-      $$
+      ```math
       \frac{\partial L}{\partial w} = w - \sum_{i=1}^n \alpha_i y_i x_i = 0
-      $$
+      ```
 
       得到: $w = \sum_{i=1}^n \alpha_i y_i x_i$
       
-      $$ 
+      ```math
       \frac{\partial L}{\partial b} = -\sum_{i=1}^n \alpha_i y_i = 0 
-      $$
+      ```
 
       得到: $\sum_{i=1}^n \alpha_i y_i = 0$
 

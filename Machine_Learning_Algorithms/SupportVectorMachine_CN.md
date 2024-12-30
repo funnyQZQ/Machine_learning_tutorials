@@ -66,7 +66,7 @@
    - 原始优化目标: $\min \frac{1}{2}||w||^2$
    - 约束条件: $y_i(w^T x_i + b) \geq 1$
    
-   引入拉格朗日乘子 $\alpha_i \geq 0$,构造拉格朗日函数:
+   引入拉格朗日乘子 $\alpha_i \geq 0$,构造拉格朗日函数:  
    $$L(w,b,\alpha) = \frac{1}{2}||w||^2 - \sum_{i=1}^n \alpha_i[y_i(w^T x_i + b) - 1]$$
    
    其中:
@@ -80,7 +80,10 @@
 3. 这两种求解顺序在满足KKT条件时是等价的
 
 因此原始问题可以写为:
-$$\min_{w,b} \max_{\alpha} L(w,b,\alpha) = \max_{\alpha} \min_{w,b} L(w,b,\alpha)$$
+
+$$
+\min_{w,b} \max_{\alpha} L(w,b,\alpha) = \max_{\alpha} \min_{w,b} L(w,b,\alpha)
+$$
 
 对 $\alpha$ 求最大值的原因:
 1. 拉格朗日乘子 $\alpha$ 的作用是惩罚约束条件的违反。当约束条件不满足时(即 $y_i(w^T x_i + b) < 1$),通过增大 $\alpha$,可以使目标函数变大,从而迫使优化过程寻找满足约束的解
@@ -102,17 +105,32 @@ $$\min_{w,b} \max_{\alpha} L(w,b,\alpha) = \max_{\alpha} \min_{w,b} L(w,b,\alpha
 
    1. 首先对拉格朗日函数关于 $w$ 和 $b$ 求偏导并令其为0:
       
-      $\frac{\partial L}{\partial w} = w - \sum_{i=1}^n \alpha_i y_i x_i = 0$
+      $$
+      \frac{\partial L}{\partial w} = w - \sum_{i=1}^n \alpha_i y_i x_i = 0
+      $$
+
       得到: $w = \sum_{i=1}^n \alpha_i y_i x_i$
       
-      $\frac{\partial L}{\partial b} = -\sum_{i=1}^n \alpha_i y_i = 0$
+      $$ 
+      \frac{\partial L}{\partial b} = -\sum_{i=1}^n \alpha_i y_i = 0 
+      $$
+
       得到: $\sum_{i=1}^n \alpha_i y_i = 0$
 
-   2. 将 $w$ 的表达式代回拉格朗日函数:
-      $L(w,b,\alpha) = \frac{1}{2}||w||^2 - \sum_{i=1}^n \alpha_i[y_i(w^T x_i + b) - 1]$
+   2. 将 $w$ 的表达式代回拉格朗日函数:  
+      $$ 
+      L(w,b,\alpha) = \frac{1}{2}||w||^2 - \sum_{i=1}^n \alpha_i[y_i(w^T x_i + b) - 1]
+      $$
       
-      $= \frac{1}{2}(\sum_{i=1}^n \alpha_i y_i x_i)^T(\sum_{j=1}^n \alpha_j y_j x_j) - \sum_{i=1}^n \alpha_i[y_i((\sum_{j=1}^n \alpha_j y_j x_j)^T x_i + b) - 1]$
+      $$
+      = \frac{1}{2}(\sum_{i=1}^n \alpha_i y_i x_i)^T(\sum_{j=1}^n \alpha_j y_j x_j) - \sum_{i=1}^n \alpha_i[y_i((\sum_{j=1}^n \alpha_j y_j x_j)^T x_i + b) - 1]
+      $$
 
    3. 化简后得到对偶问题:
-   $$\max_{\alpha} \sum_{i=1}^n \alpha_i - \frac{1}{2}\sum_{i=1}^n\sum_{j=1}^n \alpha_i\alpha_j y_i y_j x_i^T x_j$$
-   $$s.t. \quad \sum_{i=1}^n \alpha_i y_i = 0, \quad \alpha_i \geq 0$$
+
+   $$
+   \max_{\alpha} \sum_{i=1}^n \alpha_i - \frac{1}{2}\sum_{i=1}^n\sum_{j=1}^n \alpha_i\alpha_j y_i y_j x_i^T x_j
+   $$
+   $$
+   s.t. \quad \sum_{i=1}^n \alpha_i y_i = 0, \quad \alpha_i \geq 0
+   $$

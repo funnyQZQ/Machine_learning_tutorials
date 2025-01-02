@@ -85,3 +85,47 @@ Where:
 3. Cross entropy is always non-negative
 4. The more accurate the prediction, the smaller the cross entropy loss
 5. When prediction is perfect ($\hat{y}=y$), the loss is 0
+
+**4. Code Implementation**
+
+**NumPy Implementation**
+```python
+import numpy as np
+
+def cross_entropy_numpy(y_true, y_pred, epsilon=1e-15):
+    """
+    Calculate cross entropy loss
+    
+    Parameters:
+        y_true: true labels (one-hot encoded)
+        y_pred: predicted probabilities
+        epsilon: small value to prevent log(0)
+    """
+    # Clip prediction values to avoid log(0)
+    y_pred = np.clip(y_pred, epsilon, 1 - epsilon)
+    
+    # Binary classification case
+    if y_true.ndim == 1:
+        return -np.mean(y_true * np.log(y_pred) + (1 - y_true) * np.log(1 - y_pred))
+    
+    # Multi-class classification case
+    return -np.mean(np.sum(y_true * np.log(y_pred), axis=1))
+
+# Binary classification
+y_true_binary = np.array([1, 0, 1, 1])
+y_pred_binary = np.array([0.9, 0.1, 0.8, 0.7])
+loss_binary = cross_entropy_numpy(y_true_binary, y_pred_binary)
+print(f"Binary Cross Entropy Loss: {loss_binary:.4f}")
+
+# Multi-class classification
+y_true_multi = np.array([[1,0,0], [0,1,0], [0,0,1]])  # 3 samples, 3 classes
+y_pred_multi = np.array([[0.8,0.1,0.1], [0.2,0.7,0.1], [0.1,0.2,0.7]])
+loss_multi = cross_entropy_numpy(y_true_multi, y_pred_multi)
+print(f"Multi-class Cross Entropy Loss: {loss_multi:.4f}")
+```
+
+Output:
+```
+Binary Cross Entropy Loss: 0.1976
+Multi-class Cross Entropy Loss: 0.3122
+```

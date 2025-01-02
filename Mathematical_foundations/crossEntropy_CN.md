@@ -86,3 +86,48 @@ $$
 3. 交叉熵总是非负的
 4. 预测越准确，交叉熵损失越小
 5. 预测完全正确时（$\hat{y}=y$），损失为0
+
+
+**4. 代码实现**
+
+**NumPy实现**
+```python
+import numpy as np
+
+def cross_entropy_numpy(y_true, y_pred, epsilon=1e-15):
+    """
+    计算交叉熵损失
+    
+    参数:
+        y_true: 真实标签 (one-hot编码)
+        y_pred: 预测概率
+        epsilon: 小数值，防止log(0)
+    """
+    # 裁剪预测值，避免log(0)
+    y_pred = np.clip(y_pred, epsilon, 1 - epsilon)
+    
+    # 二分类情况
+    if y_true.ndim == 1:
+        return -np.mean(y_true * np.log(y_pred) + (1 - y_true) * np.log(1 - y_pred))
+    
+    # 多分类情况
+    return -np.mean(np.sum(y_true * np.log(y_pred), axis=1))
+
+# 二分类
+y_true_binary = np.array([1, 0, 1, 1])
+y_pred_binary = np.array([0.9, 0.1, 0.8, 0.7])
+loss_binary = cross_entropy_numpy(y_true_binary, y_pred_binary)
+print(f"Binary Cross Entropy Loss: {loss_binary:.4f}")
+
+# 多分类
+y_true_multi = np.array([[1,0,0], [0,1,0], [0,0,1]])  # 3个样本，3个类别
+y_pred_multi = np.array([[0.8,0.1,0.1], [0.2,0.7,0.1], [0.1,0.2,0.7]])
+loss_multi = cross_entropy_numpy(y_true_multi, y_pred_multi)
+print(f"Multi-class Cross Entropy Loss: {loss_multi:.4f}")
+```
+
+输出结果：
+```
+Binary Cross Entropy Loss: 0.1976
+Multi-class Cross Entropy Loss: 0.3122
+```
